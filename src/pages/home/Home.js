@@ -65,10 +65,6 @@ const Home = () => {
         <Content style={{ margin: '0 16px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', justifyContent: 'center', marginLeft: '48px' }}>
             <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>

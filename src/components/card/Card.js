@@ -6,10 +6,10 @@ import { Avatar, Card as AntCard, Spin } from 'antd';
 import * as actions from './actions/cardActions';
 
 const { Meta } = AntCard;
-
+// MUDAR DISPATCH PARA O HOME
 const Card = () => {
     const dispatch = useDispatch();
-    const { loading, data, error } = useSelector((state) => state.card);
+    const { loading, items, error } = useSelector((state) => state.card);
 
     useEffect(() => {
         dispatch(actions.fetchCardData());
@@ -18,7 +18,7 @@ const Card = () => {
     if (loading) {
         return <Spin size="large" />;
     }
-
+    console.log('items: ', items)
     if (error) {
         return <div>Error: {error}</div>;
     }
@@ -30,7 +30,7 @@ const Card = () => {
                 cover={
                     <img
                         alt="example"
-                        src={data?.imageUrl || "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"}
+                        src={items?.imageUrl || "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"}
                     />
                 }
                 actions={[
@@ -40,9 +40,9 @@ const Card = () => {
                 ]}
             >
                 <Meta
-                    avatar={<Avatar src={data?.avatar || "https://api.dicebear.com/7.x/miniavs/svg?seed=8"} />}
-                    title={data?.title || "Card title"}
-                    description={data?.description || "This is the description"}
+                    avatar={<Avatar src={items?.avatar || "https://api.dicebear.com/7.x/miniavs/svg?seed=8"} />}
+                    title={items?.title || "Card title"}
+                    description={items?.description || "This is the description"}
                 />
             </AntCard>
         </>
