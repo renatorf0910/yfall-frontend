@@ -1,0 +1,15 @@
+.homeContainer {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .inputField {
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  .searchButton {
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
