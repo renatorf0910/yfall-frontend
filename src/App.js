@@ -4,6 +4,7 @@ import './App.css';
 import Home from './pages/home/Home';
 import { Provider } from 'react-redux';
 import store from './store'
+import Login from './pages/login/Login';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <>
       <Provider store={store}>
         <Home />
+        {/* <Login /> */}
       </Provider>
     </>
   );

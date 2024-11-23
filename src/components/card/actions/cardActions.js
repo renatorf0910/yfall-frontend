@@ -10,10 +10,8 @@ export const fetchCardData = () => {
 
     try {
       const response = await axios.get('/item');
-      console.log('response ', response)
       dispatch({ type: FETCH_CARD_DATA_SUCCESS, payload: response.data });
     } catch (error) {
-      console.log('11: ', error)
       dispatch({ type: FETCH_CARD_DATA_FAILURE, error: error.message });
     }
   };
