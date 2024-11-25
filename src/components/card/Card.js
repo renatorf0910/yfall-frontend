@@ -7,7 +7,7 @@ const { Meta } = AntCard;
 
 const Card = (props) => {
     const { item } = props
-    console.log('item: ', item)
+
     return (
         <>
             <AntCard
