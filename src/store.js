@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { cardReducer } from './components/card/reducers';
-import { homeReducer } from './pages/home/reducers';
+import { homeReducer } from './pages/home_seller/reducers';
 import userReducer from './pages/login/reducers/loginReducers';
 
 const store = configureStore({

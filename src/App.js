@@ -2,7 +2,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './pages/home/Home';
+// import Home from './pages/home_seller/Home';
+import HomeAll from './pages/home_all/Home'
 import Login from './pages/login/Login';
 import store from './store';
 import moment from 'moment';
@@ -17,7 +18,8 @@ function App() {
       <Provider store={store}>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path='/' element={<HomeAll />} />
+            {/* <Route path="/" element={<Home />} /> */}
             <Route path="/login" element={<Login />} />
           </Routes>
         </Router>

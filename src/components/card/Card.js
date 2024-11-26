@@ -29,7 +29,7 @@ const Card = (props) => {
                 <Meta
                     avatar={<Avatar src={item?.avatar || "https://api.dicebear.com/7.x/miniavs/svg?seed=8"} />}
                     title={item?.name}
-                    description={item?.slug} // mudar para description
+                    description={item?.slug}
                 />
             </AntCard>
         </>

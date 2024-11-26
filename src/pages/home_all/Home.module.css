@@ -1,0 +1,38 @@
+.layout {
+    min-height: 100vh;
+  }
+  
+  .header {
+    background: #001529;
+    padding: 0 20px;
+  }
+  
+  .header .logo {
+    color: white;
+    font-size: 24px;
+  }
+  
+  .site-layout-content {
+    padding: 0 50px;
+  }
+  
+  footer {
+    background: #f1f1f1;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .ant-card {
+    border-radius: 8px;
+  }
+  
+  .ant-card-actions {
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .site-layout-content {
+      padding: 0 20px;
+    }
+  }
+  

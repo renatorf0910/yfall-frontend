@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Button, Input, Layout, Menu } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Layout } from 'antd';
 
 const FooterPage = () => {
     const { Footer } = Layout;
