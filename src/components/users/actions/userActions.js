@@ -8,7 +8,7 @@ export const createUser = (userData) => {
   return async (dispatch) => {
     dispatch({ type: CREATE_USER_REQUEST });
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/`, userData);
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/register/`, userData);
       const data = await response.data;
       dispatch({ type: CREATE_USER_SUCCESS, payload: data });
       return data;

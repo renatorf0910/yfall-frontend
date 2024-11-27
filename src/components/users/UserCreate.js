@@ -1,30 +1,55 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { ProForm, ProFormDatePicker, ProFormText } from '@ant-design/pro-components';
 import { Button, message } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as actions from './actions/userActions';
-import CryptoJS from 'crypto-js';
-
+import axios from 'axios';
 
 const UserCreate = ({ onFinish }) => {
     const dispatch = useDispatch();
+    const [currentUser, setCurrentUser] = useState();
 
     const handleSubmit = (values) => {
-        dispatch(actions.createUser(values))
+        const dict_test = {
+            "email": values.email,
+            "username": values.username,
+            "password": values.password
+        }
+        dispatch(actions.createUser(dict_test))
             .then(() => {
                 message.success('User created successfully!');
-                onFinish();
+                axios.post(`${process.env.REACT_APP_API_BASE_URL}/login/`, {
+                    email: values.email,
+                    password: values.password,
+                })
+                    .then(response => {
+                        message.success('Login successful!');
+                        setCurrentUser(true);
+                    })
+                    .catch(error => {
+                        console.log(`Failed to log in: ${error.response.data.detail || error.message}`);
+                    });
             })
             .catch((error) => {
-                message.error(`Failed to create user: ${error}`);
+                console.log(`Failed to create user: ${error}`);
             });
     };
+
+    if (currentUser) {
+        return (
+            <div>
+                <div className="center">
+                    <h2>You're logged in!</h2>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <ProForm onFinish={handleSubmit} submitter={false}>
             <ProFormText
-                name="name"
+                name="username"
                 fieldProps={{
                     size: 'large',
                     prefix: <UserOutlined className="prefixIcon" />,
@@ -41,7 +66,7 @@ const UserCreate = ({ onFinish }) => {
                 placeholder="E-MAIL"
                 rules={[{ required: true, message: 'Please enter your email address!' }]}
             />
-            <ProFormText
+            {/* <ProFormText
                 name="address"
                 fieldProps={{
                     size: 'large',
@@ -76,7 +101,7 @@ const UserCreate = ({ onFinish }) => {
                 }}
                 placeholder="AGE"
                 rules={[{ required: true, message: 'Please enter your age!' }]}
-            />
+            /> */}
             <ProFormText.Password
                 name="password"
                 fieldProps={{
