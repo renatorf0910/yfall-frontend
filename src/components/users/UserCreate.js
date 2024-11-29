@@ -40,7 +40,7 @@ const UserCreate = ({ onFinish }) => {
         return (
             <div>
                 <div className="center">
-                    <h2>You're logged in!</h2>
+                    <h2>You're logged in! congrats</h2>
                 </div>
             </div>
         );
